@@ -1,0 +1,129 @@
+.container {
+    display: flex;
+    align-items: center;
+  }
+  
+ 
+  .main-content {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .logo-wrapper {
+    text-align: center;
+    margin-bottom: -400px;
+    margin-right : -350px;
+    position: absolute;
+    right : 900px; 
+    bottom : 300px;
+  }
+  
+  .logo-icon {
+    width: 800px;
+    height :800px
+  }
+  
+  .form-wrapper {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+    margin-left: 770px;
+    margin-bottom : -200px;
+  }
+
+  
+  
+  .input-field {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 30px; /* Added border-radius */
+    border: 1px solid #ccc; /* Added border */
+    outline :none;
+  }
+
+  .input-container {
+    display: flex;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+    .icon {
+        margin-right: 10px; /* Adjust this value as needed */
+      }
+      
+  .signup-btn {
+    width: 60px; /* Changed width */
+    padding: 10px;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    border: none;
+    border-radius: 30px; /* Added border-radius */
+    cursor: pointer;
+  }
+  
+  .login-link {
+    margin-top: 10px;
+    text-align: center;
+    color: grey;
+  }
+
+  /* Other styles remain the same */
+
+.create-new-line {
+    text-align: center;
+    margin-bottom: 10px; /* Adjust margin as needed */
+  }
+  
+  .account-line {
+    text-align: center;
+    margin-bottom: 20px; /* Adjust margin as needed */
+  }
+  
+  /* CreateNew.css */
+
+/* Sidebar styles */
+.sidebar {
+    height: 100%;
+    width: 60px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 570px;
+  }
+  
+  /* Style sidebar links */
+  .sidebar a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+  }
+  
+  /* Style links on mouse-over */
+  .sidebar a:hover {
+    color: #f1f1f1;
+  }
+  
+  
+  
+  
+  .signup-btn:hover {
+    background-color: #ccee35;
+  }
+  
+
+  
+  .login-link a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .login-link a:hover {
+    text-decoration: underline;
+  }
+  
+  

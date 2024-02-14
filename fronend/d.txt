@@ -1,0 +1,111 @@
+App.js 
+import React from 'react';
+import What from "./What"
+export function App(props) {
+  return (
+    <div className='App'>
+
+      <What/>
+    </div>
+  );
+}
+
+// Log to console
+console.log('Hello console')
+
+What.css 
+/* What.css */
+
+/* Keyframe animation for slide-up */
+@keyframes slideUp {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Container styles */
+.what-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width :100vw;
+  background-color: rgb(255, 255, 10); /* Yellow background */
+}
+
+/* Question styles */
+.question {
+  font-size: 24px;
+  margin-bottom: 20px;
+  animation: slideUp 0.5s ease infinite; /* Apply slide-up animation and repeat infinitely */
+  color :black;
+}
+
+/* Input wrapper styles */
+.input-wrapper {
+  position: relative;
+}
+
+/* Input field styles */
+input[type="text"] {
+  width: 300px;
+  height: 40px;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  animation: slideUp 0.5s ease infinite; /* Apply slide-up animation and repeat infinitely */
+}
+
+/* Logo wrapper styles */
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Bhasha logo styles */
+.bhasha-logo {
+  width: 50px;
+  height: auto;
+  margin-right: 10px;
+  margin-bottom: -300px;
+}
+
+/* Bhasha buddy text styles */
+.bhasha-buddy {
+  font-size: 18px;
+  margin-bottom: -300px;
+  color :black;
+}
+
+
+What.js
+import React from 'react';
+import './What.css';
+
+const What = () => {
+  return (
+    <div className="what-container">
+      <div className="question">What is your native language?</div>
+      <div className="input-wrapper">
+        <input type="text" placeholder="Type here" />
+      </div>
+      <div className="animation-slideup"></div>
+      <div className="logo-wrapper">
+        <img src="/path/to/bhasha-logo.png" alt="Bhasha Logo" className="bhasha-logo" />
+        <div className="bhasha-buddy">Bhasha Buddy</div>
+      </div>
+    </div>
+  );
+};
+
+export default What;
+
+
