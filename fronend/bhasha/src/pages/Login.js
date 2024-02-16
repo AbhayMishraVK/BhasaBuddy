@@ -10,6 +10,7 @@ const Login = () => {
           <div className="logo-wrapper">
               <img className="logo-icon" src="/Bhasha.png" alt="Logo" />
           </div>
+
           {/*sidebar*/}
           <div className="login-container">
               <div className="sidebar">
@@ -34,8 +35,6 @@ const Login = () => {
                   <a href="#"><img src="/fb.png" alt="fb" class="size" /></a>
                   <p><Link to="google.com">Not registered? <Link to="/register">Create an account</Link></Link></p>
               </div>
-
-
           </div></>
   );
 };
