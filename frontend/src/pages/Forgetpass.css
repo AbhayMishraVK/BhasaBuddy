@@ -1,0 +1,146 @@
+*{
+    margin:0px;
+    padding:0px;
+    font-family:'Roboto', Helvetica, sans-serif;
+    font-weight:bold;
+    box-sizing: border-box;
+  
+  }
+  form div h2 {
+    margin-top:20px;
+  }
+  
+  .forget-password-container {
+    position:absolute;
+    margin: 0 auto;
+    border: 1px solid #ffffff;
+    text-align: center;
+    margin-left: 100px;
+    margin-bottom : -900px;
+    margin-top : -900px;
+  
+    background-color: #e1cab8;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px #928377;
+    width: 400px;
+    max-width: 80%;
+    }
+    
+    .forget-password-container h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    
+    .forget-password-container p {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+    
+    .forget-password-container form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .forget-password-container input {
+      margin-bottom: 20px;
+      margin-top: 20px;
+      padding: 10px;
+      border-radius: 30px;
+      border: 1px solid #ccc;
+      width: 250px;
+    }
+    
+    .forget-password-container .send-btn {
+      background-color: black;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 30px;
+      margin-bottom: 20px;
+      width: 140px;
+    }
+    
+    .forget-password-container a {
+      text-decoration: none;
+      color: blue;
+    }
+  
+    /*for icon fontawesome*/
+     
+   .input-container {
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  
+  .icon {
+    padding: 10px;
+    background: rgb(0, 0, 0);
+    color: white;
+    min-width: 20px;
+    text-align: center;
+    border-radius :50px;
+    margin-right :10px;
+    height:35px;
+    position: relative;
+    bottom :-40px;
+  }
+  
+  .input-field {
+    width: 100%;
+    padding: 10px;
+    outline: none;
+  }
+  
+  .input-field:focus {
+    border: 2px solid dodgerblue;
+  }
+  
+  /* Set a style for the submit button */
+  .btn {
+    background-color: rgb(0, 0, 0);
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+  }
+  
+  .btn:hover {
+    opacity: 1;
+  }
+  
+  /*sidebar/*
+  
+   
+  /* Sidebar styles */
+  .sidebar {
+    height: 100%;
+    width: 60px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 570px;
+  }
+  
+  /* Style sidebar links */
+  .sidebar a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+  }
+  
+  /* Style links on mouse-over */
+  .sidebar a:hover {
+    color: #f1f1f1;
+  }
+  
