@@ -1,8 +1,6 @@
-from flask import Blueprint, jsonify, request
+from flask import Blueprint, request
 from ..controllers.auth import login, request_otp_and_send_email, verify_otp_and_signup, forgotPassword, setNewPassword, \
     levelAndCommittedTime, regionalLanguage
-
-print("JI haa ")
 
 auth = Blueprint('auth', __name__)
 
@@ -10,22 +8,26 @@ auth = Blueprint('auth', __name__)
 ######################### LOGIN ROUTE ###########################3
 @auth.route('/user/login', methods=['POST'])
 def loginRoute():
+    print(f"\n {request.json} \n")
     response = login(request)
 
     # Return the response from the login function as JSON
-    return jsonify(response)
+    return response
 
 
 ########################## SIGN UP ROUTE ######################
 @auth.route('/user/signup', methods=['POST'], endpoint="signupAndSendOtpRoute")
 def signupAndSendOtpRoute():
+    print(f"\n {request.json} \n")
     response = request_otp_and_send_email(request)
+
     return response
 
 
 ########################### VERIFY OTP AND SIGNUP #########################
 @auth.route('/user/verify-otp', methods=['POST'])
 def verifyOtpAndSignupRoute():
+    print(f"\n {request.json} \n")
     response = verify_otp_and_signup(request)
     return response
 
@@ -33,6 +35,7 @@ def verifyOtpAndSignupRoute():
 ############################ FORGOT PASSWORD  ############################
 @auth.route('/user/forgotPassword', methods=['POST'])
 def forgotPasswordRoute():
+    print(f"\n {request.json} \n")
     response = forgotPassword(request)
     return response
 
@@ -54,5 +57,6 @@ def regionalLanguageRoute():
 ############################ Set New Password ############################
 @auth.route('/user/setNewPassword', methods=['POST'])
 def setNewPasswordRoute():
+    print(f"\n {request.json} \n")
     response = setNewPassword(request)
     return response

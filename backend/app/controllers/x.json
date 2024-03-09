@@ -1,0 +1,333 @@
+{
+    "_id": {
+        "$oid": "65e9d9bf39e3a2d5100d3d55"
+    },
+    "chhose": {
+        "questions": [
+            {
+                "id": 1,
+                "question": "What is the Hindi word for 'book'?",
+                "options": {
+                    "A": "पुस्तक",
+                    "B": "अखबार",
+                    "C": "कागज़",
+                    "D": "गद्य"
+                },
+                "correct_option": "A"
+            },
+            {
+                "id": 2,
+                "question": "Translate 'window' into Hindi.",
+                "options": {
+                    "A": "खिड़की",
+                    "B": "दरवाज़ा",
+                    "C": "दीवार",
+                    "D": "छत"
+                },
+                "correct_option": "A"
+            },
+            {
+                "id": 3,
+                "question": "What is the Hindi word for 'sun'?",
+                "options": {
+                    "A": "सूर्य",
+                    "B": "चाँद",
+                    "C": "तारा",
+                    "D": "बिजली"
+                },
+                "correct_option": "A"
+            },
+            {
+                "id": 4,
+                "question": "How do you say 'hello' in Hindi?",
+                "options": {
+                    "A": "नमस्ते",
+                    "B": "हैलो",
+                    "C": "सलाम",
+                    "D": "कैसे हो"
+                },
+                "correct_option": "A"
+            },
+            {
+                "id": 5,
+                "question": "What is the Hindi translation for 'cat'?",
+                "options": {
+                    "A": "बिल्ली",
+                    "B": "कुत्ता",
+                    "C": "गाय",
+                    "D": "भालू"
+                },
+                "correct_option": "A"
+            },
+            {
+                "id": 6,
+                "question": "Convert 'elephant' into Hindi.",
+                "options": {
+                    "A": "हाथी",
+                    "B": "बंदर",
+                    "C": "बछड़ा",
+                    "D": "गधा"
+                },
+                "correct_option": "A"
+            },
+            {
+                "id": 7,
+                "question": "What is the Hindi word for 'water'?",
+                "options": {
+                    "A": "पानी",
+                    "B": "जल",
+                    "C": "नदी",
+                    "D": "दूध"
+                },
+                "correct_option": "A"
+            },
+            {
+                "id": 8,
+                "question": "What is the Hindi translation for 'chair'?",
+                "options": {
+                    "A": "कुर्सी",
+                    "B": "ताला",
+                    "C": "मेज़",
+                    "D": "बेड़"
+                },
+                "correct_option": "A"
+            },
+            {
+                "id": 9,
+                "question": "What is the Hindi translation for 'school'?",
+                "options": {
+                    "A": "स्कूल",
+                    "B": "मक़तब",
+                    "C": "विद्यालय",
+                    "D": "कॉलेज"
+                },
+                "correct_option": "C"
+            },
+            {
+                "id": 10,
+                "question": "How do you say 'thank you' in Hindi?",
+                "options": {
+                    "A": "धन्यवाद",
+                    "B": "शुक्रिया",
+                    "C": "माफ़ कीजिये",
+                    "D": "अरे बाप रे"
+                },
+                "correct_option": "A"
+            },
+            {
+                "id": 11,
+                "question": "What is the Hindi word for 'car'?",
+                "options": {
+                    "A": "कार",
+                    "B": "गाड़ी",
+                    "C": "बस",
+                    "D": "मोटरसाइकिल"
+                },
+                "correct_option": "B"
+            },
+            {
+                "id": 12,
+                "question": "Translate 'computer' into Hindi.",
+                "options": {
+                    "A": "कम्प्यूटर",
+                    "B": "मोबाइल",
+                    "C": "लैपटॉप",
+                    "D": "व्यक्तिगत सहायक"
+                },
+                "correct_option": "A"
+            },
+            {
+                "id": 13,
+                "question": "What is the Hindi word for 'mother'?",
+                "options": {
+                    "A": "माँ",
+                    "B": "बेटी",
+                    "C": "बहन",
+                    "D": "दादी"
+                },
+                "correct_option": "A"
+            },
+            {
+                "id": 14,
+                "question": "How do you say 'goodbye' in Hindi?",
+                "options": {
+                    "A": "नमस्ते",
+                    "B": "फिर मिलेंगे",
+                    "C": "ख़ुदा हाफ़िज़",
+                    "D": "अलविदा"
+                },
+                "correct_option": "D"
+            },
+            {
+                "id": 15,
+                "question": "Translate 'I am happy' into Hindi.",
+                "options": {
+                    "A": "मैं खुश हूँ",
+                    "B": "मैं उदास हूँ",
+                    "C": "मैं गुस्सा हूँ",
+                    "D": "मैं उत्सुक हूँ"
+                },
+                "correct_option": "A"
+            },
+            {
+                "id": 16,
+                "question": "How do you say 'My name is Rahul' in Hindi?",
+                "options": {
+                    "A": "मेरा नाम राहुल है",
+                    "B": "मेरा नाम सोनिया है",
+                    "C": "मेरा नाम अमित है",
+                    "D": "मेरा नाम साहिल है"
+                },
+                "correct_option": "A"
+            },
+            {
+                "id": 17,
+                "question": "Translate 'She is reading a book' into Hindi.",
+                "options": {
+                    "A": "वह पुस्तक पढ़ रही है",
+                    "B": "वह खेल रही है",
+                    "C": "वह गाना गा रही है",
+                    "D": "वह बातें कर रही है"
+                },
+                "correct_option": "A"
+            },
+            {
+                "id": 18,
+                "question": "How do you say 'They are eating dinner' in Hindi?",
+                "options": {
+                    "A": "वे रात का खाना खा रहे हैं",
+                    "B": "वे खेल रहे हैं",
+                    "C": "वे गाना गा रहे हैं",
+                    "D": "वे सो रहे हैं"
+                },
+                "correct_option": "A"
+            },
+            {
+                "id": 19,
+                "question": "Translate 'He is going to school' into Hindi.",
+                "options": {
+                    "A": "वह बाजार जा रहा है",
+                    "B": "वह घर पर है",
+                    "C": "वह स्कूल जा रहा है",
+                    "D": "वह खेल रहा है"
+                },
+                "correct_option": "C"
+            },
+            {
+                "id": 20,
+                "question": "What is the Hindi translation for 'She is sleeping'?",
+                "options": {
+                    "A": "वह सो रही है",
+                    "B": "वह खाना खा रही है",
+                    "C": "वह गाना गा रही है",
+                    "D": "वह खेल रही है"
+                },
+                "correct_option": "A"
+            }
+        ]
+    },
+    "cardGame": {
+        "words": [
+            {
+                "id": 1,
+                "english": "book",
+                "hindi": "पुस्तक"
+            },
+            {
+                "id": 2,
+                "english": "sun",
+                "hindi": "सूर्य"
+            },
+            {
+                "id": 3,
+                "english": "hello",
+                "hindi": "नमस्ते"
+            },
+            {
+                "id": 4,
+                "english": "cat",
+                "hindi": "बिल्ली"
+            },
+            {
+                "id": 5,
+                "english": "elephant",
+                "hindi": "हाथी"
+            },
+            {
+                "id": 6,
+                "english": "water",
+                "hindi": "पानी"
+            },
+            {
+                "id": 7,
+                "english": "school",
+                "hindi": "विद्यालय"
+            },
+            {
+                "id": 8,
+                "english": "thank you",
+                "hindi": "धन्यवाद"
+            },
+            {
+                "id": 9,
+                "english": "car",
+                "hindi": "गाड़ी"
+            },
+            {
+                "id": 10,
+                "english": "computer",
+                "hindi": "कंप्यूटर"
+            },
+            {
+                "id": 11,
+                "english": "mother",
+                "hindi": "माँ"
+            },
+            {
+                "id": 12,
+                "english": "goodbye",
+                "hindi": "अलविदा"
+            },
+            {
+                "id": 13,
+                "english": "chair",
+                "hindi": "कुर्सी"
+            },
+            {
+                "id": 14,
+                "english": "window",
+                "hindi": "खिड़की"
+            },
+            {
+                "id": 15,
+                "english": "table",
+                "hindi": "मेज़"
+            },
+            {
+                "id": 16,
+                "english": "banana",
+                "hindi": "केला"
+            },
+            {
+                "id": 17,
+                "english": "train",
+                "hindi": "ट्रेन"
+            },
+            {
+                "id": 18,
+                "english": "sky",
+                "hindi": "आकाश"
+            },
+            {
+                "id": 19,
+                "english": "tree",
+                "hindi": "पेड़"
+            },
+            {
+                "id": 20,
+                "english": "flower",
+                "hindi": "फूल"
+            }
+        ]
+    }
+}
