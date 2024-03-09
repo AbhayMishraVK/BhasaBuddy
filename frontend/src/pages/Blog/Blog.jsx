@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './Blog.css';
+// import './Blog.css';
 
 function BlogPage() {
     const [blogPosts, setBlogPosts] = useState([]);
-    const email = "user@example.com"; // Replace with actual user's email
+    const email = "amcsevk@gmail.com"; // Replace with actual user's email
 
     useEffect(() => {
         fetchBlogPosts();
@@ -13,9 +13,10 @@ function BlogPage() {
     //function to request the data
     const fetchBlogPosts = async () => {
         try {
-            const url = 'backend-url/posts';
+            const url = 'http://127.0.0.1:5000/blogs';
             const requestData = { email: email };
             const response = await axios.post(url, requestData);
+            console.log(response)
     
             if (response.status === 200) {
                 setBlogPosts(response.data.blogs);
@@ -56,12 +57,16 @@ function BlogPage() {
                     {blogPosts && Array.isArray(blogPosts) && blogPosts.length > 0 && blogPosts.map(post => (
                         <div className="post" key={post.id} onClick={() => handlePostClick(post.title)}>
                             <div className="lp">
-                                <img src={post.image} alt={post.title} />                
+                                {/* {console.log(post.image)} */}
+                                <img src={`data:image/jpeg;base64,${post.image}`} alt={post.title} />
                             </div>
                             <div className="rp">
+                                <h2>{post.writer_name}</h2>
                                 <h2>{post.title}</h2>
-                                <p>{post.body}</p>
-                            </div> 
+                                {/* <p>{post.content}</p>
+                                 */}
+                                <p>{post.content.split(' ').slice(0, 25).join(' ')}{post.content.split(' ').length > 25 ? '...' : ''}</p>
+                            </div>
                         </div> 
                     ))}
                     {(blogPosts.length === 0) && <p>No blog posts found.</p>}

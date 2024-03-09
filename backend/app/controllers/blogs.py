@@ -39,7 +39,9 @@ def get_blogs(request):
         # Convert ObjectId to string for each blog and include the image path
         for blog in filtered_blogs:
             blog['_id'] = str(blog['_id'])
-            blog['image'] = blog['image'] # This is the path to the image
+            blog['image'] = base64.b64encode(open(blog['image'], 'rb').read()).decode('utf-8') 
+        
+        # print(f"\n \n Blogs" , filtered_blogs, "\n\n")
 
         # Return the filtered blogs as JSON
         return jsonify({"blogs": filtered_blogs, "status": 200}), 200

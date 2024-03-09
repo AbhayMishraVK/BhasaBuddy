@@ -85,6 +85,8 @@ def like_post(request):
         data = request.json
         post_id = data.get('post_id')
 
+        print("post_id", post_id)
+
         post = mongo.db.community.find_one({'post_id': post_id})
         if post is None:
             return jsonify({'error': 'Post not found', 'status': 404}), 404
