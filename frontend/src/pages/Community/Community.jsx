@@ -18,7 +18,7 @@ function CommunityPage() {
   const fetchPosts = async () => {
     setLoading(true);
     try {
-      const response = await axios.get("http://127.0.0.1:5000/community/posts");
+      const response = await axios.get("http://127.0.0.1:5000//community/posts");
       if (response.status === 200) {
         setPosts(response.data.posts);
       } else {
