@@ -1,5 +1,7 @@
 from app import mongo 
 from flask import jsonify
+import base64
+import os
 
 def get_name_by_email(email):
     try:
@@ -16,33 +18,49 @@ def get_name_by_email(email):
 
 
 def get_all_courses():
-
-    try:
+    try: 
         courses = set()
         videos = mongo.db.video.find({})
         for video in videos:
+            print(video["course_route"])
             course = (video['course_name'],
                       video['course_image'],
                       video['course_language'],
                       video['course_teacher_name'],
                       video['course_rating'],
-                      video['course_description'])
+                      video['course_description'],
+                      video["course_route"]
+                      )
+
             existing_course = next((c for c in courses if c[0] == course[0]), None)
             if not existing_course:
                 courses.add(course)
 
-        all_courses = [{"course_name": course_name,
-                        "course_image": course_image,
-                        "language": language,
-                        "teacher_name": teacher_name,
-                        "rating": rating,
-                        "description": description} for course_name, course_image, language, teacher_name, rating, description in courses]
+        all_courses = []
+        for course_name, course_image, language, teacher_name, rating, description, course_route in courses:
+            # Read the image file and encode it to base64
+            with open(os.path.join("static", "images", course_image), "rb") as img_file:
+                encoded_image = base64.b64encode(img_file.read()).decode('utf-8')
+                # print(f"\n\n encoded image : {encoded_image} \n\n")
+            
+            all_courses.append({
+                "course_name": course_name,
+                "course_image": encoded_image,
+                "language": language,
+                "teacher_name": teacher_name,
+                "rating": rating,
+                "description": description,
+                "course_route": course_route
+            })
+        
+        # print(all_courses)
 
-        return {"courses" : all_courses}
+        return {"courses": all_courses}
 
     except Exception as e:
         print(f"Error in retrieving all courses: {e}")
         return {"error": "Error in retrieving all courses"}
+
 
 
 
@@ -58,13 +76,15 @@ def get_user_progress_by_email(email):
             course_info = mongo.db.video.find_one({'course_name': {"$regex": course_name, "$options": "i"}}, limit=1)
             
             if course_info:
-                course_image = course_info['course_image']
+                with open(os.path.join("static", "images", course_info['course_image']), "rb") as img_file:
+                    encoded_image = base64.b64encode(img_file.read()).decode('utf-8')
+
                 teacher_name = course_info['course_teacher_name']
                 print(f"\n\n {teacher_name} \n\n")
                 percentage_completed = (completed_videos / total_videos) * 100
                 return {
                     "title": course_name,
-                    "course_image": course_image,
+                    "course_image": encoded_image,
                     "teacher_name": teacher_name,
                     "percentage_completed": percentage_completed
                 }
@@ -82,6 +102,9 @@ def home_info(request):
     name = get_name_by_email(email)
     courses = get_all_courses()
     progress = get_user_progress_by_email(email)
+
+    # print(courses)
+
     return jsonify({
         'name': name,
         'courses': courses,

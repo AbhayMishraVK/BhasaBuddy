@@ -1,0 +1,143 @@
+.home-container {
+    padding: 0;
+    background: linear-gradient(to right, #020024 0%, #f6f6f7 0%, #23d2f6 99%);
+    min-height: 130vh;
+    padding-top: 20px;
+    padding-inline: 100px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-bottom: 20px;
+}
+
+.home-container p,button,strong{
+    font-size: 1.2em;
+    line-height: 1.5em;
+    letter-spacing: 0.8px;
+}
+
+strong {
+    letter-spacing: 0.5px;
+}
+
+.home-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;    
+}
+
+.home-nav-lp {
+    width: 50%;
+}
+
+.home-nav-rp {
+    margin-top: 20px;
+}
+
+.home-nav-lp img {
+    height: 10px;
+    float: left;
+    margin-right: 15px;
+}
+
+.home-button {
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    background-color: #d81159;
+    color: #fff;
+    margin-left:20px;
+    transition: 0.3s ease-in-out;
+}
+
+.home-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 0 8px #444 ;
+    background-color: #c71053;
+}
+
+.home-desc {
+    margin-top: 30px;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding:20px;
+    padding-left: 40px;
+    border-radius: 30px;
+}
+
+.home-desc img {
+    float: right;
+    height: 400px;
+}
+
+/* home-hero section starts */
+
+.home-hero1, .home-hero2, .home-hero3 {
+    display: flex;
+    text-align: justify;
+    column-gap: 30px;
+    margin-top: 30px;
+    padding-inline:40px;
+    border-radius: 30px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.home-hero2 {
+    flex-direction: row-reverse;
+}
+
+.home-hero-lp{
+    height: 100%;
+}
+
+.home-hero-lp img {
+    height: 350px;
+}
+
+.home-hero-rp {
+    margin-top: 20px;
+}
+
+/* home-learners-kind-starts */
+.home-learners-kind h2 {
+    float:inline-start;
+}
+
+.home-learners-kind {
+    margin-top: 20px;   
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 30px;
+    padding-inline: 40px;   
+    padding-block: 20px; 
+}
+
+.home-upper {
+    display: flex;
+    justify-content: center;
+}
+
+.home-lower {
+    display: flex;
+    flex-direction: row;
+}
+
+.home-learners-kind img {
+    line-height: 1.7em;
+    height: 250px;
+    margin-top: 0;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+    color:#000;
+    line-height: normal;
+    border-radius: 30px;
+    /* padding-inline: 30px;
+    padding-block: 20px; */
+}

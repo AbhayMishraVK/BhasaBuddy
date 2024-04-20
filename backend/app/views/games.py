@@ -6,6 +6,7 @@ games = Blueprint('games', __name__)
 
 @games.route('/user/game_score_update', methods=['POST'])
 def update_score_route():
+    print(f"\n\n {request.json} \n\n")
     response = update_user_score(request)
     return response
 

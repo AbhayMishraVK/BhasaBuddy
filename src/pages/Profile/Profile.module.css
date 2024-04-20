@@ -1,0 +1,232 @@
+.profile-outer-container {
+    padding:0;
+    margin:0;
+    padding-inline: 100px;
+    background: linear-gradient(to right, #020024 0%, #f6f6f7 0%, #23d2f6 99%);
+    min-height: 100vh;
+    font-size: 1.2em;
+}
+
+.profile-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+#profile-nav {
+    padding-block: 15px;
+}
+
+.profile-sec {
+    min-height: 485px;
+}
+
+.profile-flex {
+    display: flex;
+}
+
+#profile-userDetails {
+    display: grid;
+    grid-template-columns: repeat(2, 150px);
+    row-gap: 30px;
+    text-align: start;
+    justify-content: space-around;
+    padding-block: 30px;
+    width: 28%;
+    /* border: 1px solid black; */
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: inset 0 0 5px #444; /* Inset box shadow */
+
+
+}
+
+#profile-name {
+    display: flex;
+    align-items: center;
+}
+
+/* section-1 ends */
+
+/* section-2 starts */
+
+/* p-1 starts */
+
+#profile-userCourseInfo {
+    /* padding:20px; */
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* row-gap: 20px; */
+    width: 33%;
+}
+
+.profile-currently-learning-section {
+    /* border: 1px solid black; */
+    border-radius: 5px;
+    padding: 15px;
+    padding-bottom: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: inset 0 0 5px #444; /* Inset box shadow */
+}
+
+.profile-currently-learning-section h2 h4{
+    margin:0px;
+}
+/* part-1 ends */
+
+/* part-2 starts */
+
+.profile-progress {
+    /* border: 1px solid black; */
+    border-radius: 5px;
+    padding: 10px;
+    padding-inline: 15px;
+    display: flex;
+    flex-direction: row;
+    row-gap: 20px;
+    justify-content: space-between;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding-block: 15px;
+    box-shadow: inset 0 0 5px #444; /* Inset box shadow */
+
+}
+
+.profile-prg-lp h2 {
+    margin: 5px; /* Remove margin for h2 element */
+}
+
+#profile-percentage-completed {
+    padding: 10px;
+    padding-block: 20px;
+    font-size: 2em;
+    border: 18px solid #d8115aba;
+    border-radius: 100px;
+    float: right;
+    height: fit-content;
+    margin-top: 10px;
+}
+
+.profile-time-spent {
+    display: flex;
+    justify-content: space-between;
+    padding-inline: 40px;
+    padding-top: 20px;
+    /* border: 1px solid black; */
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: inset 0 0 5px #444; /* Inset box shadow */
+
+}
+
+#profile-no {
+    background-color: #ffff;
+    padding-block: 5px;
+    padding-inline: 10px;
+    border-radius: 10px;
+    margin-left: 20px;
+    margin-top: 13px;
+}
+
+.profile-inner {
+    display: flex;
+    margin-top: 15px;
+    gap: 10px;
+    align-items: center;
+}
+
+.profile-t-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* profile-section-3 starts */
+
+#profile-userStreak {
+    width: 36%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#profile-userStreak p,div{
+    margin:0;
+    padding:0;
+}
+
+#profile-streak-part {
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    height: 48%;
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: inset 0 0 5px #444; /* Inset box shadow */
+}
+
+.profile-stk-upr {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    /* padding: 20px; */
+    padding-top:30px;
+}
+
+.profile-stk-lwr {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 40px;
+}
+
+.profile-day-streak {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    text-align: center;
+}
+
+.profile-day-streak-cnt{
+    border-radius: 15px;
+    padding-block: 5px;
+    padding-inline: 10px;
+    color: transparent;
+    width:'fitContent';
+    flex:1;
+}
+
+#profile-current-streak,
+#profile-best-streak,
+#profile-total-days {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    text-align: center;
+}
+
+/* profile-section-3 part-2 */
+
+.profile-acheivement-part {
+    height: 48%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile-ach-lp, 
+.profile-ach-rp {
+    /* border: 1px solid black; */
+    width: 46%;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: inset 0 0 5px #444; /* Inset box shadow */
+    text-align: center;
+    padding-top: 20px;
+}
+
+.profile-ach-lp p, 
+.profile-ach-rp p {
+    margin-top: 30px;
+    margin-bottom: 15px;
+}

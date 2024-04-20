@@ -1,0 +1,52 @@
+import React, { useState, useEffect } from 'react';
+import axios from 'axios'; // Import Axios for making HTTP requests
+import './ScoreSection.css'; // Import your CSS file for styling
+import { fetchUserScore } from '../../api/apiUtils';
+import Confetti from './confetti anim/Confetti';
+
+const ScoreSection = () => {
+  const [score, setScore] = useState(null);
+
+  useEffect(() => {
+    const email = 'user@example.com'; // Replace with the actual user's email
+    const score = 0;
+    fetchUserScore(email, score)
+      .then((userScore) => setScore(userScore))
+      .catch((error) => console.error(error));
+  }, []);
+
+  useEffect(() => {
+    if (score === 5 && score !== null) {
+      // Show confetti animation only when score reaches 5 and score is not null
+      Confetti();
+    }
+  }, [score]);
+
+  return (
+    <div className="score-container">
+      <Confetti/>
+      <h2 className="score-header">Your Score</h2>
+      <div className="progress-bar">
+        <div className="progress-fill" style={{ width: `${(score / 5) * 100}%` }}></div>
+      </div>
+      <div className="score-details">
+        <div className="score-item">Score: {score}</div>
+        <div className="score-item">Out of: 5</div>
+        <div className="score-item">{score ? `${(score / 5) * 100}%` : '0%'}</div>
+      </div>
+      {/* Assuming correct and incorrect scores are also returned from the API */}
+      <div className="correct-incorrect">
+        <div className="correct">Correct: {score}</div>
+        <div className="incorrect">Incorrect: {5 - score}</div>
+      </div>
+      <button className="view-results">View Results</button>
+      <button className="same-width-button">Same Width Button Again</button>
+      <div className="continue-retake">
+        <button className="continue">Continue with Pathway</button>
+        <button className="retake">Retake Assessment</button>
+      </div>
+    </div>
+  );
+};
+
+export default ScoreSection;

@@ -1,0 +1,75 @@
+
+.container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100vh;
+}
+
+.blue-sky-section {
+  background-image : url('/public/card.jpeg');
+  color: rgb(0, 0, 0);
+  padding: 20px;
+  text-align: center;
+}
+
+.user-picture {
+  border-radius: 50%;
+  width: 50px; /* Adjust width as needed */
+  height: 50px; /* Adjust height as needed */
+  margin-right: 10px;
+}
+
+.textcolor {
+  color: #ff7300; /* Dark color */
+  font-size: 20px; /* Adjust font size as needed */
+}
+
+.parent {
+  display: flex;
+  justify-content: center;
+}
+
+.section {
+  background-color: #ecf0f1; /* Light gray color */
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px;
+  text-align: center;
+}
+
+.section button {
+  margin: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #3498db; /* Blue color */
+  color: white;
+  cursor: pointer;
+}
+
+.section button:hover {
+  background-color: #2980b9; /* Darker blue color on hover */
+}
+
+.error-message {
+  color: #c0392b; /* Red color */
+  font-size: 18px; /* Adjust font size as needed */
+  text-align: center;
+}
+
+.next{
+  background-color: #c0392b;
+}
+
+.score{
+  color : rgb(255, 255, 255);
+  background-color: #010101;
+  width :100px;
+  margin-left: 170px;
+  margin-top: 20px;
+  border-radius: 30px;
+  font-size: large;
+  font-family: fantasy;
+}

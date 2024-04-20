@@ -1,0 +1,291 @@
+/* Homepage.module.css */
+
+/* Prefixing all class names with 'homepage' to ensure uniqueness */
+.homepageBody {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom right, #4CAF50, #2196F3); /* Gradient from green to blue */
+    background-size: cover; /* Ensure background covers entire element */
+    height:100vh;
+}
+
+.homepageContainer {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.homepageSidebar {
+    width: 200px;
+    background-color: black;
+    color: white;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.homepageProfileInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.homepageProfileInfo img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.homepageOptions {
+    margin-top: 20px;
+    
+}
+.homepageOptions li a {
+    color: #ffffff; /* Adjust color as needed */
+    text-decoration: none; /* Remove default underline */
+}
+
+.homepageOptions ul {
+    list-style-type: none;
+    padding: 0;
+    display :flex;
+    flex-direction: column;
+    
+}
+
+.homepageOptions li {
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: large;
+   
+    
+}
+
+.homepageOptions li a:hover {
+    color: #ffff4f; /* Adjust hover color as needed */
+    cursor: pointer;
+}
+
+.homepageContent {
+    flex: 1;
+    padding: 20px;
+    margin-left: 240px;
+}
+
+.homepageTopBar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.homepageTopBar input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    width: 100%;
+    max-width: 500px;
+    height: 25px;
+}
+
+.homepageUserInfo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-left: 60%;
+}
+
+.homepageUserInfo img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.homepageCourses {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5%;
+    margin-top: 1%;
+    position: relative;
+    margin-left: 4%;
+}
+
+.homepageCourses select {
+    margin-left: 20px;
+    border-radius: 30px;
+    background-color: yellow;
+    width: 100px;
+    height: 30px;
+}
+
+.homepageSections {
+    display: flex;
+    flex-wrap: nowrap; /* Ensure courses stay in a row */
+    /*overflow-x: auto; /* Enable horizontal scrolling if needed */
+    margin-top : 30px;
+    width : 90%;
+}
+
+.homepageSection {
+    flex: 0 0 calc(33.33% - 20px);
+    margin-right: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    background-color: white;
+}
+
+.homepageSection img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.homepageSectionInfo {
+    margin-top: 10px;
+}
+
+.homepageSectionInfo h3 {
+    margin-bottom: 5px;
+}
+
+.homepageSectionInfo .profile {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.homepageSectionInfo .profile img {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.homepageSectionInfo .grad-button {
+    margin-right: 5px;
+    border-radius: 30px; /* Adjusted border-radius */
+    width: 70px;
+    background-color: rgb(176, 255, 229);
+    color : green;
+    margin-left:140px;
+    position: sticky;
+    bottom: 320px;
+}
+
+.homepageSearch {
+    position: absolute;
+    top: 20px;
+    left: 300px;
+    width:50%;
+    margin-bottom: -10px;
+}
+
+.profileImage {
+    max-width: 30px; /* Adjust as needed */
+    height: 30px; /* Adjust as needed */
+    border-radius: 50%;
+    margin-right: 10px;
+
+}
+
+.homepageProgress {
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Adjust as needed */
+    width : 90%;
+    max-height :100%;
+}
+
+
+.progress::-webkit-progress-value {
+    background-color: #4caf50; /* Color of the progress bar */
+    border-radius: 5px; /* Match the border radius of the progress bar */
+}
+
+.continue{
+ font-size: larger;
+}
+
+.container {
+  display: flex;
+  
+}
+
+.section {
+    flex: 1;
+    margin-right: 200px;
+    /* Adjust margin as needed */
+    background-color: white;
+    width: 100%;
+    text-align: center;
+    border-radius: 30px;
+    height: 350px;
+    background-image: url('../../images/chat3.png');
+    background-image: ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 5%;
+    background-color: #000;
+}
+.section1{
+    flex: 1;
+  margin-right: 20px; /* Adjust margin as needed */
+  
+}
+
+.chat{
+    max-height: 40%;
+    max-width: 30%;
+    position: relative;
+    top:20px;
+}
+
+.chatbot{
+    font-size: xx-large;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(116, 255, 206);
+    position: relative;
+    bottom: 20px;
+}
+
+
+.getStartedButton {
+    /* Button styles */
+    padding: 10px 20px;
+    border: 2px solid #000; /* Border style */
+    background-color: #fff; /* Background color */
+    color: #000; /* Text color */
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer;
+    transition: all 0.3s ease; /* Smooth transition effect */
+    margin-top: 55%;
+  }
+  
+  .getStartedButton:hover {
+    /* Styles when hovering over the button */
+    background-color: #000;
+    color: #fff;
+    
+  }
+
+  .homepageSection:hover {
+      /* Add your hover styles here */
+      border: 1px solid #ccc;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .top{
+     position: relative;
+     top : 20px;
+  }

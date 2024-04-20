@@ -1,0 +1,58 @@
+.sectionRow {
+    display: flex;
+    gap: 20px; /* Add space between sections */
+  }
+  
+  .move{
+    margin-left: 20%;
+    margin-top :10%;
+  }
+  .sectionLink {
+    text-decoration: none;
+    color: inherit; /* Ensures the link color matches the text color */
+    
+  }
+  
+  .section {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s, transform 0.3s;
+    width: 200px;
+    height:300px;
+    border-radius: 30px;
+  }
+  
+  .section:hover {
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+  }
+  
+  .courseContainer {
+    display: flex;
+    flex-wrap: wrap;
+    
+  }
+  
+  .courseLink {
+    text-decoration: none;
+  }
+  
+  .course {
+    flex: 0 0 calc(33.33% - 20px);
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s, transform 0.3s;
+  }
+  
+  .course:hover {
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+  }
+
+  
+  

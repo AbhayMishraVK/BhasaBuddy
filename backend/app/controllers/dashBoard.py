@@ -14,7 +14,7 @@ def get_user_details(email):
         streak = user['streak']
         max_streak = user['max_streak']
         joined = user['joined']
-        age = user['age']
+        age = user.get('age')
         email_to_send = user['email']
 
         if age == 'None':
@@ -93,10 +93,12 @@ def user_streak_generator(email):
         date = start_date + timedelta(days=i)
         presence = random.choice([0, 1])  # 0 for absent, 1 for present
         day_name = date.strftime("%A")  # Get the day name
+        print(day_name)
         presence_data[day_name] = presence
 
     # CURRENT DATE ALWAYS 1
     presence_data[list(presence_data.keys())[-1]] = 1
+    print(presence_data)
 
     # Save presence string to the database
     try:
@@ -140,12 +142,14 @@ def dash_third_part(email):
     current_streak = user.get("streak")
     max_streak = user.get("max_streak")
     total_diamond = user.get("total_diamond")
+    total_days = user.get("total_days")
 
     return {
         "seven_day_streak": seven_day_streak,
         "current_streak": current_streak,
         "max_streak": max_streak,
-        "total_diamond": total_diamond
+        "total_diamond": total_diamond,
+        "total_days":total_days
     }
 
 
@@ -154,7 +158,7 @@ def collectiveFunction(request):
     data = request.json
     email = data.get('email')
 
-    print(f"\n\n\n {data} \n\n\n")
+    # print(f"\n\n\n {data} \n\n\n")
 
     user_details = get_user_details(email)
 

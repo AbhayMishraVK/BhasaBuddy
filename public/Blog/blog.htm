@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Page</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="outer-container">
+
+        <div class="container">
+            <nav class="nav">
+                <h1>Bhasha Buddy Blogs</h1>
+                <span>Become fluent in any language</span>
+            </nav>
+            <aside class="Languages">
+                <h2>Learning Languages</h2>
+                <div class="language-buttons">
+                    <button class="language-btn" data-language="hindi">Hindi</button>
+                    <button class="language-btn" data-language="punjabi">Punjabi</button>
+                    <button class="language-btn" data-language="telugu">Telugu</button>
+                    <button class="language-btn" data-language="Tamil">tamil</button>
+                    <button class="language-btn" data-language="Bengali">Bengali</button>
+                    <button class="language-btn" data-language="marathi">Marathi</button>
+                    <button class="language-btn" data-language="Assamese">Assamese</button>
+                </div>
+            </aside>
+            <div id="blog-posts">
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Function to fetch blog posts from backend based on language
+            function fetchBlogPosts(language) {
+                // Replace 'backend-url' with your actual backend URL
+                let url = 'backend-url/posts';
+                if (language && language !== 'all') {
+                    url += `?language=${language}`;
+                }
+                fetch(url)
+                    .then(response => response.json())
+                    .then(data => {
+                        // Once data is received, create HTML for each blog post and append to the page
+                        const blogPostsContainer = document.getElementById('blog-posts');
+                        blogPostsContainer.innerHTML = ''; // Clear existing posts
+                        data.forEach(post => {
+                            const postHTML = `
+                                <div class="post">
+                                    <div class="lp">
+                                        <img src="${post.image}" alt="${post.title}">                
+                                    </div>
+                                    <div class="rp">
+                                        <h2>${post.title}</h2>
+                                        <p>${post.body}</p>
+                                    </div> 
+                    
+                                </div> 
+                                    `;
+                            blogPostsContainer.innerHTML += postHTML;
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error fetching blog posts:', error);
+                    });
+            }
+
+            // Add event listener to the language buttons
+            const languageButtons = document.querySelectorAll('.language-btn');
+            languageButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const selectedLanguage = this.dataset.language;
+                    fetchBlogPosts(selectedLanguage);
+                });
+            });
+
+
+            // Function to send the title to the backend when a blog post is clicked
+            function sendTitleToBackend(title) {
+                const data = { title: title };
+                fetch('backend-url/posts', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log('Title sent to backend:', data);
+                    })
+                    .catch(error => {
+                        console.error('Error sending title to backend:', error);
+                    });
+            }
+
+            // Add click event listener to each blog post
+            const blogPosts = document.querySelectorAll('.post');
+            blogPosts.forEach(post => {
+                post.addEventListener('click', function () {
+                    const title = this.querySelector('h3').innerText; // Extract title from h3 tag
+                    sendTitleToBackend(title);
+                });
+            });
+
+            // Call the function to fetch blog posts when the page loads with all posts
+            fetchBlogPosts('all');
+        });
+    </script>
+
+</body>
+
+</html>

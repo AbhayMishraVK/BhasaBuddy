@@ -77,7 +77,7 @@ def get_words_for_game():
             return jsonify({"error": f"Words length is less than 10", "status": 400}), 400
 
         random_ids = set()
-        while len(random_ids) < 10:
+        while len(random_ids) < 4:
             random_ids.add(random.randint(1, w_len))
 
         words_list = []
@@ -92,39 +92,3 @@ def get_words_for_game():
         print(f"\n Error in get words for game: {e} \n")
         return jsonify({"message": "Error in getting words for game.", "status": 500}), 500
 
-
-
-# [{'id': 1, 'english': 'book', 'hindi': 'पुस्तक'}, {'id': 2, 
-# 'english': 'sun', 'hindi': 'सूर्य'}, {'id': 3, 'english': 'h
-# ello', 'hindi': 'नमस्ते'}, {'id': 6, 'english': 'water', 'hi
-# ndi': 'पानी'}, {'id': 7, 'english': 'school', 'hindi': 'विद्
-# यालय'}, {'id': 8, 'english': 'thank you', 'hindi': 'धन्यवाद'
-# }, {'id': 9, 'english': 'car', 'hindi': 'गाड़ी'}, {'id': 12,
-#  'english': 'goodbye', 'hindi': 'अलविदा'}, {'id': 14, 'english': 'window', 'hindi': 'खिड़की'}, {'id': 16, 'english': 'ba
-# nana', 'hindi': 'केला'}]
-    
-
-#  [
-#             {
-#                 "id": 1,
-#                 "question": "What is the Hindi word for 'book'?",
-#                 "options": {
-#                     "A": "पुस्तक",
-#                     "B": "अखबार",
-#                     "C": "कागज़",
-#                     "D": "गद्य"
-#                 },
-#                 "correct_option": "A"
-#             },
-#             {
-#                 "id": 2,
-#                 "question": "Translate 'window' into Hindi.",
-#                 "options": {
-#                     "A": "खिड़की",
-#                     "B": "दरवाज़ा",
-#                     "C": "दीवार",
-#                     "D": "छत"
-#                 },
-#                 "correct_option": "A"
-#             }
-#  ]

@@ -130,23 +130,22 @@ def request_otp_and_send_email(request):
 def verify_otp(email, otp):
     print("\n Email is ", email)
 
-    # Get otp from the
-    stored_otp = mongo.db.temp.otp_collection.find_one({'email': email})
+    # Get all documents from the 'temp' collection with the given email
+    users = mongo.db.temp.find({'email': email})
 
-    print(f"\n stored OTP :  {stored_otp} \n")
+    for user in users:
+        stored_otp = user.get('otp')
 
-    print("stored OTP is : ", stored_otp)
+        print(f"\nStored OTP: {stored_otp}\n")
 
-    if stored_otp is None:
-        print("\n" + "OTP is not found in the stored" + "\n")
-        return 0
+        if stored_otp is None:
+            print("\nOTP is not found in the stored\n")
+            return 0
 
-    is_otp_valid = otp == int(stored_otp)
+        if int(otp) == int(stored_otp):
+            return 1  # Return 1 if OTP matches any stored OTP
 
-    if not is_otp_valid:
-        return 0
-    else:
-        return 1
+    return 0  # Return 0 if no matching OTP is found
 
 
 ################################ verify_otp_and_signup ####################################
@@ -165,19 +164,23 @@ def verify_otp_and_signup(request):
 
     verified_otp = verify_otp(email, otp)
 
+    print("\n\n verified otp : ", verified_otp)
+
     if not verified_otp:
         return jsonify({'message': 'Invalid OTP', 'status': 400}), 400
 
-    del session[f'{email}_otp']
-
     # FOR CHECKING IF USER ALREADY SIGNUP AND THIS OTP VERIFICATION FOR FORGOT PASSWORD
     user = mongo.db.user.find_one({'email': email})
+
+    # print("User : ", user)
 
     if user:
         return jsonify({'message': 'OTP verified successfully', 'status': 200}), 200
 
     try:
         user_data = session.get(f'{email}_userData')
+
+        print("User data ", user_data)
 
         if user_data is None:
             return jsonify({'message': 'User data not found in session', 'status': 500}), 500
@@ -223,7 +226,8 @@ def forgotPassword(request):
         if response == 1:
             return jsonify({"status": "success", "message": "OTP sent successfully", 'status': 200}), 200
         else:
-            return jsonify({"status": "error", "message": "Failed to send OTP. Please try again later.", 'status': 500}), 500
+            return jsonify(
+                {"status": "error", "message": "Failed to send OTP. Please try again later.", 'status': 500}), 500
 
     except Exception as e:
         print("Error sending OTP:", e)
@@ -235,9 +239,11 @@ def setNewPassword(request):
     data = request.json
 
     # Extract new password, confirm password, and email from the request data
-    new_password = data.get('new_password')
-    confirm_password = data.get('confirm_password')
+    new_password = data.get('newPassword')
+    confirm_password = data.get('confirmPassword')
     email = data.get('email')
+
+    print(new_password, confirm_password, email, "hahaha")
 
     if None in (new_password, confirm_password, email):
         return jsonify({'error': 'All fields are required: new_password, confirm_password, email', 'status': 400}), 400
@@ -256,14 +262,16 @@ def setNewPassword(request):
     # Hash the new password using bcrypt
     hashed_password = bcrypt.hashpw(new_password.encode('utf-8'), bcrypt.gensalt())
 
+    print(hashed_password)
+
     # Update user's password in the database
     result = mongo.db.users.update_one({'email': email}, {'$set': {'password': hashed_password}})
 
     # Check if the update operation was successful
-    if result.modified_count == 1:
-        return jsonify({'message': 'Password updated successfully', 'status': 200}), 200
-    else:
-        return jsonify({'message': 'Failed to update password', 'status': 500}), 500
+    # if result.modified_count == 1:
+    return jsonify({'message': 'Password updated successfully', 'status': 200}), 200
+    # else:
+    #     return jsonify({'message': 'Failed to update password', 'status': 500}), 500
 
 
 ################################ Level and commited Time ####################################
@@ -271,12 +279,15 @@ def levelAndCommittedTime(request):
     data = request.json
 
     # Extract new password, confirm password, and email from the request data
-    level = data.get('level')
+    regional_language = data.get('language')
     committedTime = data.get('committedTime')
     email = data.get('email')
 
+    print(email)
+    print(regional_language)
+
     # Check if all required fields are present in the request data
-    if None in (level, committedTime, email):
+    if None in (regional_language, committedTime, email):
         return jsonify({'error': 'All fields are required: level, committedTime, email', 'status': 400}), 400
 
     # Find the user by email and update their level and committed time
@@ -288,7 +299,25 @@ def levelAndCommittedTime(request):
 
     if user:
         # Update user's level and committed time
-        mongo.db.user.update_one({'_id': user['_id']}, {'$set': {'level': level, 'committedTime': committedTime}})
+        mongo.db.user.update_one({'_id': user['_id']}, {
+            '$set': {'regional_language': regional_language.capitalize(), 'committedTime': committedTime, 'total_days': 0,
+                     'max_streak': 1, 'streak': 1, 'total_time_spent': 0, 'total_diamond': 0, "seven_day_streak": {
+                    "Sunday": 0,
+                    "Monday": 0,
+                    "Tuesday": 0,
+                    "Wednesday": 0,
+                    "Thursday": 0,
+                    "Friday": 1,
+                    "Saturday": 0
+                }}})
+
+        mongo.db.game.insert_one({"email": email, "total_score": 0})
+
+        if regional_language == 'hindi':
+            mongo.db.courses.insert_one(
+                {"email": email, "course": "Hindi level 1", "total_videos": 5, "completed_videos": 0,
+                 "completed_videos_id": []})
+
         return jsonify({'message': 'User level and committed time updated successfully', 'status': 200}), 200
     else:
         return jsonify({'error': 'Error in updating level and committed time', 'status': 500}), 500

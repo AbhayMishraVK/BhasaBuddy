@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styel_profile.css">
+</head>
+
+<body>
+    <div class="outer-container">
+        <h1 id="nav">Profile</h1>
+        <div class="container">
+
+            <!-- section-1 starts -->
+
+            <section class="sec" id="userDetails">
+                <img style="width: 150px; border-radius:100px ;" id="profile-image" src="/images/girl-study-photos.png" alt=""><span id="name">xyz
+                    name</span>
+                <div>Account </div><span style="    overflow-wrap: break-word;"
+                    id="email">aryankelwa7024@gmail.com</span>
+                <div>Joined on </div><span id="date">12-12-1222</span>
+                <div>Language </div><span id="Lang">Malyalam</span>
+                <div>Age </div><span id="Age">20</span>
+            </section>
+
+            <!-- section-1 ends -->
+
+
+            <!-- section-2 starts -->
+            <section class="sec" id="userCourseInfo">
+
+                <div class=" flex currently-learning-section">
+                    <div class="lp">
+                        <h3>You are currently learning</h3>
+                        <h2 style="margin-top: 20px;" id="tutorial-name">Hindi level -1</h2>
+                    </div>
+                    <div class="rp">
+                        <img style="height: 100px; border-radius: 10px;" id="tutorila-image" src="./book.jpeg" alt="">
+                        <p id="lesson">lesson-6</p>
+                    </div>
+                </div>
+
+
+                <div class="progress">
+
+                    <div class="prg-lp">
+                        <h3>Learning progress</h3>
+                        <div style="font-size: 2em; font-weight: 900; margin: 0px;" id="lessons-completed">4/<span
+                                id="total-lessons">8</span></div>
+                        <h2 style="margin-top: 20px;">Lessons Completed</h2>
+                    </div>
+
+                    <div class="prg-rp">
+                        <div id="percentage-completed">50%</div>
+                    </div>
+
+                </div>
+
+
+                <div class="time-spent flex">
+                    <div class="lp">
+                        <p>Vocabulary</p>
+                        <div class="inner">
+                            <img style="height:40px; margin-top: 10px;" src="/images/book.svg" alt="">
+                            <span id="no">8</span>
+                        </div>
+                    </div>
+                    <div class="rp">
+                        <p>Time Spent</p>
+                        <div class="t-inner">
+                            <div style="margin-top: 10px">
+                                <img style="height:40px;" src="/images/watch.svg" alt="">
+                                <span style="float: inline-end; margin-left: 30px;"  id="hours">15<span>hrs</span>
+                            </div>
+                            <p>Practice Set</p>
+                        </div>
+                    </div>
+
+
+                </div>
+            </section>
+
+            <!-- section-2 ends -->
+
+
+            <!-- section-3 starts -->
+
+            <section class="sec" id="userStreak">
+                <div id="streak-part">
+                    <div class="stk-upr">
+                        <div id="current-streak">
+                            <p>Current Streak</p>
+                            <div id="cs-days"> 12</div>
+                            <p>Days</p>
+                        </div>
+                        <div id="best-streak">
+                            <p>Best Streak</p>
+                            <div id="bs-days">30</div>
+                            <p>Days</p>
+                        </div>
+                        <div id="total-days">
+                            <p>Total Learning</p>
+                            <div id="tl-days">143<span>Days</span></div>
+                        </div>
+                    </div>
+                    <div class="stk-lwr">
+                            <p>sun</p>
+                            <p>mon</p>
+                            <p>tue</p>
+                            <p>wed</p>
+                            <p>thur</p>
+                            <p>fri</p>
+                            <p>sat</p>
+                    </div>
+
+                </div>
+                <div class="acheivement-part">
+                    <div class="ach-lp">
+                        <h3>Acheivements</h3>
+                        <p>Gold</p>
+                        <img style="height:60px;" src="/images/gold-medal.svg" alt="">
+
+                    </div>
+                    <div class="ach-rp">
+                        <h4>Totoal diamonds</h4>
+                        <p id="tot-dia">300</p>
+                        <img style="height:60px;" src="/images/diamond.svg" alt="">
+                    </div>
+                </div>
+
+            </section>
+        </div>
+        <!-- section-3 ends -->
+    </div>
+
+
+    <!-- <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        fetchUserProfile();
+    });
+
+    function fetchUserProfile() {
+        const email = "user@example.com"; // Replace with actual user's email
+        fetch("/user/dashboard", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ email: email })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.Status === 200) {
+                renderUserProfile(data);
+            } else {
+                console.error(data.error || "Unknown error occurred");
+            }
+        })
+        .catch(error => console.error("Error fetching user profile:", error));
+    }
+
+    function renderUserProfile(profileData) {
+        const userDetails = profileData.user_details;
+        const userCourseInfo = profileData.user_course_info;
+        const userStreak = profileData.streak_diamond;
+
+        renderUserDetails(userDetails);
+        renderUserCourseInfo(userCourseInfo);
+        renderUserStreak(userStreak);
+    }
+
+    function renderUserDetails(userDetails) {
+        const userDetailsContainer = document.getElementById("userDetails");
+        userDetailsContainer.innerHTML = `
+        <section class="sec" id="sec1">
+            <img id="profile-image" src="./download.jpeg" alt=""><span id="name">${userDetails.name}</span>
+            <div>Account </div><span id="email">${userDetails.email}</span>
+            <div>Joined on</div><span id="date">${userDetails.joined}</span>
+            <div>Language</div><span id="Lang">${userDetails.regional_language}</span>
+            <div>Age</div><span id="Age">${userDetails.age || "Not Specified"}</span>
+        </section>
+        `;
+    }
+
+    function renderUserCourseInfo(userCourseInfo) {
+        const userCourseInfoContainer = document.getElementById("userCourseInfo");
+        userCourseInfoContainer.innerHTML = `
+            <p>Course Name: ${userCourseInfo.course_name}</p>
+            <p>Total Lectures: ${userCourseInfo.total_lectures}</p>
+            <p>Completed Lectures: ${userCourseInfo.completed_lectures}</p>
+            <p>Percentage Completed: ${userCourseInfo.percentage_completed}%</p>
+            <p>Total Time Spent: ${userCourseInfo.total_time_spent}</p>
+            <p>Vocabulary Score: ${userCourseInfo.vocabulary}</p>
+        `;
+    }
+
+    function renderUserStreak(userStreak) {
+        const userStreakContainer = document.getElementById("userStreak");
+        userStreakContainer.innerHTML = `
+            <h2>User Streak</h2>
+            <p>Seven Day Streak: ${JSON.stringify(userStreak.seven_day_streak)}</p>
+            <p>Current Streak: ${userStreak.current_streak}</p>
+            <p>Max Streak: ${userStreak.max_streak}</p>
+            <p>Total Diamonds: ${userStreak.total_diamond}</p>
+        `;
+    }
+</script> -->
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+import React from 'react';
+import './Game2.css'; // Import your CSS file
+
+function GameLayout() {
+  return (
+    <div className="containerrr">
+      <div className="blue-sky-section">
+        <img className="user-picturee" src="/profile1/user.jpeg" alt="User Picture" />
+        <span className='textcolor'>Move the word to the correct answer</span>
+      </div>
+      {/*section*/}
+      <div className='parent'>
+  <div className="text-center">
+    <div className="sectionn">
+      <img src="/jitter.jpg" alt="Image 1" />
+      <div>Kauphee</div>
+    </div>
+    <div className="sectionn">
+      <img src="/jitter.jpg" alt="Image 2" />
+      <div>Ras</div>
+    </div>
+  </div>
+  <div className="bottom-section">Coffee</div>
+  <div className="text-center2">
+    <div className="sectionn">
+      <img src="/jitter.jpg" alt="Image 3" />
+      <div>Vaain</div>
+    </div>
+    <div className="sectionn">
+      <img src="/jitter.jpg" alt="Image 4" />
+      <div>Chaay</div>
+    </div>
+  </div>
+</div>
+    </div>
+  );
+}
+
+export default GameLayout;

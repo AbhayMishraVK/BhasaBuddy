@@ -49,7 +49,8 @@ def get_All_Videos_Info(request):
         all_videos_info.append({
             "video_id": video['video_id'],
             "title": video['video_title'], 
-            "image": video['video_image'] 
+            "image": video['video_image'],
+            "course_route": video["course_route"]
         })
 
     return jsonify({"videos": all_videos_info, "status": 200}), 200

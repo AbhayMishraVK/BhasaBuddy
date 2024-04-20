@@ -1,0 +1,119 @@
+/* Game.css */
+
+.section-container {
+    background-color: #a9a9a9;
+    border-radius: 20px;
+    padding: 20px;
+  }
+  
+  .game-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    font-size: larger;
+    color : white;
+  }
+  .white-section {
+    background-image: url('../../../public/card.jpeg');
+    background-repeat: none;
+    padding: 20px; /* Adjust the padding as per your design */
+    width : 500px;
+    position: absolute;
+    left: 400px;
+    top : 50px;
+    border-radius: 30px;
+  }
+  
+  .game-wrapper {
+    border: 1px solid #ccc; /* Optional: Add a border for visual separation */
+    border-radius: 10px; /* Optional: Add border radius for rounded corners */
+    overflow: hidden; /* Optional: Hide overflow if cards overflow container */
+  }
+  
+  
+  .card {
+    width: 100px;
+    height: 150px;
+    margin: 10px;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    background-size: 100px 150px;
+  }
+  
+  .text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  /* Define different background colors for cards */
+  .card:nth-child(1) {
+    background-color: white;
+  }
+  .card:nth-child(2) {
+    background-color: skyblue;
+  }
+  .card:nth-child(3) {
+    background-color: yellow;
+  }
+  .card:nth-child(4) {
+    background-color: skyblue;
+  }
+  .card:nth-child(5) {
+    background-color: red;
+  }
+  .card:nth-child(6) {
+    background-color: orange;
+  }
+  .card:nth-child(7) {
+    background-color: red;
+  }
+  .card:nth-child(8) {
+    background-color: yellow;
+  }
+  
+  /* Shiny effect */
+  .card:hover {
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7);
+  }
+
+
+           
+  .btn-grad {
+    background-image: linear-gradient(to right, #0575E6 0%, #021B79  51%, #0575E6  100%);
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+  }
+
+  .btn-grad:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .con{
+    display: flex;
+    flex-direction: column;
+
+  }
+  .gamelayout-sec{
+    position: absolute;
+    left : 700px;
+    top : 40px;
+  }
+
+  
+  /**/
+  

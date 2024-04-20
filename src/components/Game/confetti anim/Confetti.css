@@ -1,0 +1,23 @@
+.confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none; /* So that the confetti doesn't interfere with mouse events */
+  }
+  
+  .confetti {
+    width: 10px;
+    height: 10px;
+    background-color: #f00; /* You can adjust the color as needed */
+    position: absolute;
+    border-radius: 50%;
+    animation: confetti-fall linear 5s infinite;
+  }
+  
+  @keyframes confetti-fall {
+    0% { transform: translateY(-100vh) rotateZ(0); }
+    100% { transform: translateY(100vh) rotateZ(360deg); }
+  }
+  

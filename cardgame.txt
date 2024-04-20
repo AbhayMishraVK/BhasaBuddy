@@ -1,0 +1,171 @@
+import React, { useState, useEffect } from 'react';
+import axios from 'axios'; // Import Axios for making HTTP requests
+import './Game.css'; // Import your CSS file for styling
+import ScoreSection from '../Game/ScoreSection';
+import hoverSound from '../../assets/hoverSound.mp3';
+import PlayMoreButton from './confetti anim/Play more games/Play';
+
+const Card = ({ id, text, handleClick, backgroundImage }) => {
+  const [rotation, setRotation] = useState(Math.floor(Math.random() * 30) - 15); // Limit rotation to -15 to +15 degrees
+
+  const handleHover = () => {
+    // Play sound when hovering over the card
+    const audio = new Audio(hoverSound);
+    audio.play();
+    setRotation(rotation + 10); // Example: increase rotation by 10 degrees on hover
+  };
+
+  const cardStyle = {
+    transform: rotate(${rotation}deg),
+    backgroundImage: url(${backgroundImage}), // Set background image
+  };
+
+  return (
+    <div
+      className="card"
+      style={cardStyle}
+      onClick={() => handleClick(id)}
+      onMouseEnter={handleHover}
+    >
+      <div className="text">{text}</div>
+    </div>
+  );
+};
+
+function CardGame({ size }) {
+  const [cards, setCards] = useState([]);
+  const [selectedCards, setSelectedCards] = useState([]);
+  const [score, setScore] = useState(0);
+  const [showScore, setShowScore] = useState(false);
+  const [backgroundImages, setBackgroundImages] = useState([]);
+  const [lastSelectedWords, setLastSelectedWords] = useState([]);
+  const [roundCounter, setRoundCounter] = useState(0);
+
+  const fetchWords = async () => {
+    try {
+      const response = await axios.get('/card_game');
+      console.log(response.data.words)
+      const words = response.data.words;
+
+      const initialBackgroundImages = [
+        '/cards/card1.png',
+        '/cards/card2.png',
+        '/cards/card3.png',
+        '/cards/card4.png',
+        '/cards/card5.png',
+        '/cards/card6.png',
+        '/cards/card7.png',
+        '/cards/card8.png',
+      ];
+
+      setBackgroundImages(initialBackgroundImages);
+
+      // Shuffle the words array to ensure randomness
+      const shuffledWords = shuffleArray(words);
+
+      const initialCards = shuffledWords.slice(0, 4).flatMap((word, index) => {
+        const englishCard = {
+          id: index * 2,
+          text: word.english,
+          backgroundImage: initialBackgroundImages[index * 2], // Assigning a unique background image to each card
+        };
+        const hindiCard = {
+          id: index * 2 + 1,
+          text: word.hindi,
+          backgroundImage: initialBackgroundImages[index * 2 + 1], // Assigning a unique background image to each card
+        };
+        return [englishCard, hindiCard];
+      });
+
+      // Shuffle the cards to randomize the order
+      const shuffledCards = shuffleArray(initialCards);
+
+      setCards(shuffledCards);
+    } catch (error) {
+      console.error('Error fetching words:', error);
+    }
+  };
+
+  useEffect(() => {
+    fetchWords();
+  }, []);
+
+  const handleCardClick = (id) => {
+    const clickedCard = cards.find(card => card.id === id);
+    if (!selectedCards.includes(clickedCard)) {
+      const updatedSelectedCards = [...selectedCards, clickedCard];
+      setSelectedCards(updatedSelectedCards);
+
+      if (updatedSelectedCards.length === 2) {
+        // Save the last two selected cards' texts
+        setLastSelectedWords(updatedSelectedCards.map(card => card.text));
+      }
+    }
+  };
+
+  const handleNextClick = () => {
+    setShowScore(false);
+    // Check if the last two selected words match the English and Hindi translations from the dictionary
+    const [english, hindi] = lastSelectedWords;
+    const matchingWord = cards.find(card => (card.text === english || card.text === hindi) && !selectedCards.includes(card));
+    if (matchingWord) {
+      setScore(score + 1);
+    }
+
+    // Remove the last two selected cards from the game
+    const updatedCards = cards.filter(card => !selectedCards.includes(card));
+    setCards(updatedCards);
+
+    // Clear the last selected words and selected cards
+    setLastSelectedWords([]);
+    setSelectedCards([]);
+
+    // Increment the round counter
+    setRoundCounter(roundCounter + 1);
+
+    // Check if the user has played 10 rounds
+    if (roundCounter === 9) {
+      setShowScore(true);
+    } else {
+      fetchWords(); // Fetch new words for the next round
+    }
+  };
+
+  const shuffleArray = (array) => {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  };
+
+  return (
+    <div className="con">
+      <section className="white-section">
+        {showScore ? (
+          <ScoreSection score={score} />
+        ) : (
+          <div className="game-container" style={{ width: size?.width || '100%', height: size?.height || '100%' }}>
+{cards.map((card) => (
+<Card
+             key={card.id}
+             id={card.id}
+             text={card.text}
+             handleClick={handleCardClick}
+             backgroundImage={card.backgroundImage}
+           />
+))}
+</div>
+)}
+{!showScore && (
+<button className="btn-grad" onClick={handleNextClick}>
+Next
+</button>
+)}
+</section>
+<PlayMoreButton/>
+</div>
+);
+}
+
+export default CardGame;

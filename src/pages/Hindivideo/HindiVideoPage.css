@@ -1,0 +1,70 @@
+/* VideoPage.css */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom right, #4CAF50, #2196F3); /* Gradient from green to blue */
+  height: 100vh; /* Ensure the gradient covers the entire viewport */
+}
+
+.video-page {
+  background-size: cover;
+  background-position: center;
+  padding: 20px;
+  color: rgb(0, 0, 0);
+  border-style: double;
+}
+
+.top-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  margin: 0;
+}
+
+.progress {
+  font-size: 18px;
+}
+
+.video-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  margin-left: 5px;
+}
+
+.video-grid {
+  margin-top: 20px;
+}
+
+.video-container {
+  background-color: white; /* Add white background */
+  padding: 10px; /* Add padding for spacing */
+  margin: 10px; /* Add margin for spacing */
+  border-radius: 5px; /* Add border radius for rounded corners */
+  height: 300px;
+  transition: transform 0.3s ease; /* Add transition for smoother hover effect */
+}
+
+.video-container:hover {
+  transform: scale(1.05); /* Scale up the video container on hover */
+}
+
+.thumbnail {
+  width: 100%;
+  height: auto;
+}
+
+.lesson {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.lesson-number {
+  margin-top: 10px;
+}
+
+/* Add more styling as needed */

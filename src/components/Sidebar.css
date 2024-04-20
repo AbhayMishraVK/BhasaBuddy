@@ -1,0 +1,150 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+/* Variables */
+:root {
+  --color-1: #211c22;
+  --color-2: #fefefe;
+  --pad: 0.925rem;
+}
+
+/* Reset */
+html,
+#b {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: Roboto;
+  height: 100%;
+  background-image: linear-gradient(to right, #f4f478, #86fe73);
+  color :black;
+}
+
+.hide {
+  display: none;
+}
+
+/* Header Navigation */
+.head-nav {
+  margin-top: var(--pad);
+  padding: 0;
+  list-style: none;
+  
+}
+.head-nav li {
+  position: relative;
+  clear: both;
+  width: 100%;
+  padding: 0;
+}
+
+.head-nav li:hover {
+  background-color: var(--color-1);
+}
+
+.head-nav li:hover:before {
+  background-color: var(--color-1);
+}
+
+.head-nav li svg {
+  background: var(--color-1);
+  fill: #ED1C5B;
+}
+
+.head-nav li a {
+  display: flex;
+  padding: 2vh 0;
+  align-items: center;
+  width: 100%;
+  color: var(--color-2);
+  text-decoration: none;
+}
+
+.head-nav li a span {
+  position: relative;
+  display: block;
+  z-index: 0;
+  font-family: Roboto;
+  text-indent: -20em;
+  white-space: nowrap;
+}
+
+.head-nav li a svg {
+  max-width: 80px;
+  max-height: 30px;
+  fill: var(--color-2);
+  background: #090909;
+  border-radius : 30px;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+  .head-nav {
+    margin-top: calc(var(--pad) / 4);
+  }
+  
+  .head-nav li svg {
+    max-width: 20px;
+  }
+}
+
+/* Main Header */
+.main-head {
+  display : flex;
+  flex-direction: column-reverse;
+  position: fixed;
+  bottom: 0;
+  width: 83px;
+  height: 100%;
+  z-index: 1;
+  background: #000000;
+  transition: width 400ms;
+  left : 1px;
+}
+
+.main-head:hover {
+  width: 300px;
+}
+
+.main-head:hover + .wrap-all-the-things {
+  transform: translateX(336px);
+  max-width: 100%;
+  opacity: 0.4;
+}
+
+.main-head:hover .head-nav li {
+  span {
+    text-indent: 0;
+  }
+}
+
+.wrap-all-the-things {
+  min-height: 100%;
+  height: 100%;
+  padding-left: 140px;
+  margin-top: 0;
+  background-image: url(https://download.unsplash.com/photo-1428976365951-b70e0fa5c551);
+  background-size: cover;
+  background-position: center center;
+  transition: transform 400ms, opacity 400ms;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+  .main-head {
+    width: 70px;
+    padding: 0 var(--pad);
+  }
+
+  .head-nav {
+    padding-left: 7px;
+  }
+
+  .main-head:hover .head-nav span {
+    text-indent: 1em;
+  }
+
+  .wrap-all-the-things {
+    padding-left: 70px;
+  }
+}
+

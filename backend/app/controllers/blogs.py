@@ -60,6 +60,8 @@ def create_blog(request):
         regional_language = request.json.get('language', None)
         email = request.json.get('email', None)
 
+
+
         # Validate the required fields
         if not all([title, content, writer_name, image, regional_language, email]):
             return jsonify({"error": "All fields are required", "status": 400}), 400
@@ -92,7 +94,7 @@ def create_blog(request):
             'title': title,
             'content': content,
             'writer_name': writer_name,
-            'image': image_path, # Store the path to the image
+            'image': os.path.join('static', 'images', "temp.jpeg"),  # Store the path to the image
             'language': regional_language,
             'email': email
         }).inserted_id

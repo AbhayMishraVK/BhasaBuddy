@@ -18,7 +18,7 @@ def get_blogs_route():
     return response
 
 ################## GET ONE BLOG #########################
-@blogs.route('/oneBlog', methods=['GET'])
+@blogs.route('/oneBlog', methods=['GET', 'POST'])
 def one_blog_route():
     # print(f"\n {request.json} \n")
     response = get_one_blog(request)

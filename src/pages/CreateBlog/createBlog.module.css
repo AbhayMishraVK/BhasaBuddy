@@ -1,0 +1,91 @@
+.crbBlogOuterCont {
+    min-width: 90vw;
+    margin: 0;
+    padding:0;
+    background: linear-gradient(to right, #020024 0%, #f6f6f7 0%, #23d2f6 99%);
+    min-height: 100vh;
+    padding-top: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.crbCreateBlogContainer {
+    width: 55%;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.7);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.crbCreateBlogContainer h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.crbBlogForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.crbFormGroup {
+    display: flex;
+    flex-direction: column;
+}
+
+.crbFormGroup label {
+    margin-top: 15px;
+    font-size: 1.3rem;
+}
+
+.crbFormGroup input[type="text"],
+.crbFormGroup input[type="email"],
+.crbFormGroup input[type="file"],
+.crbFormGroup textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.crbFormGroup input[type="text"]:focus,
+.crbFormGroup input[type="email"]:focus,
+.crbFormGroup input[type="file"]:focus,
+.crbFormGroup textarea:focus {
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.crbFormGroup textarea {
+    min-height: 30px;
+    height: 100px;
+    max-width: 97%;
+
+}
+
+.crbSubmitButton {
+    padding: 10px 20px;
+    border: none;
+    margin-top: 30px;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.crbSubmitButton:hover {
+    background-color: #0056b3;
+}
+
+.crbSuccessMessage {
+    color: green;
+    margin-top: 10px;
+    font-size: 1.3em;
+}
+
+.crbErrorMessage {
+    color: red;
+    margin-top: 10px;
+    font-size: 1.3em;
+    text-align: center;
+}
